@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Walk Around Vignan</title>
+    <link rel="icon" href="favicon.png">
+    <!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+
+     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="wrapper1">
+  <div class="container-fluid Main">
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto">
+        <li class="dropdown nav-item">
+          <a class="nav-link" href="#2">Contact <span class="caret"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#3">About</a>
+        </li>
+      </ul>
+
+      </div>
+</nav>
+
+<center>
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="max-width: 1220px;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="lara block.jpg" class="d-block w-100" alt="Image 1">
+        <div class="carousel-caption">
+          <h3>Walk Around Vignan</h3>
+          <p>Your personalized campus tour assistant</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="lara block1.jpg" class="d-block w-100" alt="Image 2">
+        <div class="carousel-caption">
+          <h3>Walk Around Vignan</h3>
+          <p>Navigate with Ease</p>
+        </div>
+      </div>
+    </div>
+  
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+  
+</center>
+
+<br>
+<hr>
+<br>
+
+
+
+<form action="" name="selected" method="">
+ <font size="+1">
+  <div class="col-lg-12 col-md-12 col-sm-12" align=center>
+    <center><select name="selected" id="mySelect" style="width: 300px; background-color:ghostwhite; color:black; height: 40px;">
+    <option selected>Select where you want to go</option>
+    <option value="0">University gate</option>
+    <option value="1">NTR Library</option>
+    <option value="2">MHP</option>
+    <option value="3">Boys hostel</option>
+    <option value="4">Pharmacy block</option>
+    <option value="5">A block</option>
+    <option value="6">H block</option>
+    <option value="7">U block</option>
+    <option value="8">Lara gate</option>
+    <option value="9">Convocation hall</option>
+    <option value="10">Girls hostel</option>
+    <option value="11">Canteen</option>
+    <option value="12">Lara Library</option>
+    <option value="13">Lara new block</option>
+    <option value="14">Lara old block</option>
+  </select></center>
+  </font>
+  <br>
+  <br>
+    <button type="button" class="btn btn-outline-info" onclick="display()">Display Location Image</button>
+     
+      <br>
+      <br>
+      
+      <center><input style="padding-bottom: 10px;" type="button" value="Display route" onclick="mapping()"></center>
+</form>
+
+<br>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <img id="image1" src="" alt="" width="50%">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+   <img  id="image1" src="" alt="" width=50%>
+  </div>
+  </div>
+
+</div>
+<br>
+
+<div id="map" style="width:100%; height:70vh;">
+</div>
+
+<br>
+<br>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+<script>
+var a,b;
+function display()
+{
+  var x=document.getElementById("mySelect").value;
+  if(x==11)
+    document.getElementById("image1").src="canteen.jpg";
+    if(x==13)
+    {
+      document.getElementById("image1").src="lara block.jpg";
+    }
+    if(x==14)
+    document.getElementById("image1").src="vignan block.jpg";
+}
+
+
+var map=L.map('map')
+
+var tilelayer=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+maxZoom: 25,
+attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+var marker=L.marker(map.locate({setView: true, maxZoom: 25})).addTo(map);
+
+navigator.geolocation.watchPosition(function(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+
+       marker.setLatLng([lat, lng]);
+
+       marker.bindPopup("You are here").openPopup();
+
+ }).addTo(map);
+
+function mapping()
+{
+  var x=document.getElementById("mySelect").value;
+
+     if(x==0)
+     {
+      a=16.233369;
+      b=80.547617;
+     }
+     else if(x==1)
+     {
+      a=16.23328;
+      b=80.5483606;
+     }
+     else if(x==2)
+     {
+      a=16.232095;
+      b=80.550036;
+     }
+     else if(x==3)
+     {
+      a=16.232095;
+      b=80.550036;
+     }
+     else if(x==4)
+     {
+      a=16.230765;
+      b=80.550628;
+     }
+     else if(x==5)
+     {
+      a=16.232801;
+      b=80.547683;
+     }
+     else if(x==6)
+     {
+      a=16.232362;
+      b=80.548579;
+     }
+     else if(x==7)
+     {
+      a=16.233241;
+      b=80.551084;
+     }
+     else if(x==8)
+     {
+       a=16.2353023;
+       b=80.5524438;
+     }
+     else if(x==9)
+     {
+       a=16.233676;
+       b=80.551836;
+     }
+     else if(x==10)
+     {
+      a=16.233185;
+      b=80.554152;
+     }
+     else if(x==11)
+     {
+      a=16.2319121;
+      b=80.5532876;
+     }
+     else if(x==12)
+     {
+      a=16.231890; 
+      b=80.554028;
+     }
+      else if(x==13)
+      {
+        a=16.231673;
+        b=80.553989;
+      }
+      else if(x==14)
+      {
+        a=16.232316;
+        b=80.554496;
+      }
+
+  navigator.geolocation.watchPosition(function(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+
+       marker.setLatLng([lat, lng]);
+
+    L.Routing.control({
+        waypoints: [
+            L.latLng(lat, lng),
+            L.latLng(a,b) 
+       ]
+   }).addTo(map);
+
+ });
+
+
+}
+
+
+</script>
+
+<hr>
+</div>
+
+<div class=" row contact-me" id="2">
+  <div class="col-md-12 col-sm-12">
+  <center><h6>For any queries,mail us on </h6></center>
+  </div>
+  <div class="col-md-12 col-sm-12 gmail">
+      <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">damerasailesh@gmail.com</a>
+  </div>
+</div>
+
+<div class="row about" id="3">
+  <div class="col-md-12">
+    <h6>Follow for more updates</h6>
+  </div>
+ <div class="col-md-12 website-about">
+    <a href="https://www.vignanlara.org/">vignanlara</a>
+ </div>
+</div>
+  </body>
+</html>
